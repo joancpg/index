@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+        integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-size: 16px;
+            line-height: 1.5em;
+            font-family: 微軟正黑體, Microsoft JhengHei, MingLiU, arial, verdana, helvetica, tahoma, Sans-serif;
+            /* background-color: black; */
+            background: black;
+            box-sizing: border-box;
+            color: white;
+            position: relative;
+            height: 3000px;
+        }
+
+        .bg-dark {
+            background-color: rgb(0, 0, 0) !important;
+            ;
+        }
+
+        .navbar {
+            text-align: center;
+            display: block;
+        }
+
+        .collapse ul li {
+            padding-left: 50px;
+            padding-right: 50px;
+        }
+
+        @media screen and (max-width: 1024px) {
+            body {
+                position: relative;
+            }
+
+            .navbar-toggler {
+                position: absolute;
+                left: 80%;
+                top: 80px;
+                transition: 5s;
+            }
+        }
+
+        .block {
+            background-color: black;
+            overflow: hidden;
+            height: 3500px;
+        }
+
+        .grid {
+            max-width: 100%;
+            height: auto;
+            background-color: rgb(0, 0, 0);
+            padding: 10px;
+            display: grid;
+            grid-template-columns: 25% 25% 25% 25% 25%;
+            Grid-template-rows: auto auto auto auto auto;
+            gap: 20px 50px;
+            margin: 0 auto;
+            transform: rotate(-20deg);
+            filter: grayscale(1);
+            position: relative;
+            top: -150px;
+            left: -250px;
+        }
+
+        .box {
+            background-color: rgb(26, 24, 24);
+        }
+
+        .box img {
+            width: 100%;
+            opacity: 0.4;
+        }
+
+        @media screen and (max-width: 1024px) {
+            .block {
+                height: 3000px;
+            }
+
+            .grid {
+                gap: 20px 20px;
+                position: relative;
+                top: 60px;
+                left: -100px;
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+            .block {
+                height: 2500px;
+            }
+
+            .grid {
+                gap: 20px 20px;
+                position: relative;
+                top: 160px;
+                left: -100px;
+            }
+        }
+
+        /* --------grid結束  要開始標題囉------------- */
+
+        .maintitle {
+            text-align: center;
+            margin: 0 auto;
+            /* width: 100%; */
+            /* filter: grayscale(1); */
+            position: relative;
+            top: -2900px;
+            left: 0;
+            width: 100%;
+            /* min-height: calc(100vh - 70px); */
+            font-size: 35px;
+            color: #fff;
+
+
+        }
+
+        .toptitle h5 {
+            font-weight: 900;
+            font-size: 30px;
+            padding-bottom: 20px;
+        }
+
+        .Trap {
+            font-size: 90px;
+
+        }
+
+        .Neuter {
+            font-size: 70px;
+
+        }
+
+        .Return {
+            font-size: 90px;
+
+        }
+
+        .toptitle span {
+            color: rgb(151, 62, 62);
+            font-weight: 900;
+        }
+
+        .subtitle .Neuter span {
+            color: rgb(151, 62, 62);
+        }
+
+        .Neuter,
+        .Return {
+            position: relative;
+            top: -120px;
+        }
+
+
+
+        .ap {
+            max-width: 100px;
+            height: 100px;
+            overflow: hidden;
+            position: relative;
+            margin: 0 auto;
+
+        }
+
+        .img-ap {
+            width: 500px;
+            height: 100px;
+            position: absolute;
+            left: 0px;
+            transition: 0.5s;
+
+        }
+
+        .img-ap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: sepia(1);
+
+        }
+
+        @media screen and (max-width: 1024px) {
+            .maintitle {
+                position: relative;
+                top: -2400px;
+                left: 0;
+                width: 100%;
+
+                font-size: 35px;
+                color: #fff;
+            }
+
+            .toptitle h5 {
+                font-weight: 900;
+                font-size: 40px;
+                padding-bottom: 20px;
+            }
+
+            .Trap {
+                font-size: 50px;
+
+            }
+
+            .Neuter {
+                font-size: 50px;
+                line-height: 120px;
+
+            }
+
+            .Return {
+                font-size: 50px;
+
+            }
+
+        }
+
+        @media screen and (max-width: 768px) {
+            .maintitle {
+                position: relative;
+                top: -2100px;
+                left: 0;
+                font-size: 35px;
+                color: #fff;
+            }
+
+            .toptitle h5 {
+                font-weight: 600;
+                font-size: 15px;
+                padding-bottom: 20px;
+            }
+
+            .Trap {
+                font-size: 40px;
+
+            }
+
+            .Neuter {
+                font-size: 25px;
+                line-height: 120px;
+
+            }
+
+            .Return {
+                font-size: 40px;
+
+            }
+
+
+
+        }
+
+        .video-container {
+            position: relative;
+            padding-bottom: 50%;
+            padding-top: 10px;
+            height: 0;
+            overflow: hidden;
+            filter: grayscale(1);
+        }
+
+        .video-container iframe,
+        .video-container object,
+        .video-container embed {
+            position: absolute;
+            top: 0;
+            left: 25%;
+            width: 50%;
+            height: 50%;
+        }
+
+        @media screen and (max-width: 1024px) {
+
+            .video-container iframe,
+            .video-container object,
+            .video-container embed {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+            }
+        }
+
+        .intro {
+            text-align: center;
+            position: relative;
+            top: -960px;
+        }
+
+        .bgc-grey {
+            height: 2200px;
+        }
+
+        .main-word,
+        .sub-inform {
+            font-weight: 600;
+            line-height: 50px;
+        }
+
+        .sub-inform {
+            position: relative;
+            top: -360px;
+        }
+
+        .sub-inform h3 {
+            color: rgb(151, 62, 62);
+        }
+
+        .intro .bgc-grey {
+            background-color: rgb(44, 41, 41);
+            border-radius: 30px;
+
+        }
+
+        .intro .bgc-grey h3 span {
+            color: rgb(151, 62, 62);
+        }
+
+
+        @media screen and (max-width: 1024px) {
+            .intro {
+                top: -1800px;
+            }
+
+            .intro h3 {
+                font-size: 18px;
+            }
+
+            .sub-inform {
+                position: relative;
+                top: 20px;
+            }
+
+        }
+
+        @media screen and (max-width: 768px) {
+            .intro {
+                top: -2020px;
+            }
+
+            .intro h3 {
+                font-size: 18px;
+            }
+
+            .sub-inform {
+                position: relative;
+                top: 20px;
+            }
+
+
+        }
+
+        .end-both {
+            display: flex;
+            justify-content: space-between;
+            position: relative;
+            top: -400px;
+            padding: 60px 40px;
+            font-size: 20px;
+
+
+        }
+
+        @media screen and (max-width: 1024px) {
+            .end-both {
+                position: relative;
+                top: -20px;
+                padding: 60px 40px;
+                font-size: 16px;
+
+            }
+        }
+
+        /* -------------------結尾開始-------------------- */
+        .footer {
+            padding-top: 20px;
+            text-align: center;
+            background-color: black;
+            color: white;
+            position: relative;
+            top: -300px;
+
+        }
+
+        .wrap {
+            max-width: 100px;
+            height: 120px;
+            overflow: hidden;
+            position: relative;
+            margin: 0 auto;
+            background-color: black;
+        }
+
+        .img-wrap {
+            width: 500px;
+            height: 120px;
+            position: absolute;
+            left: 0px;
+            transition: 0.5s;
+
+        }
+
+        .img-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: sepia(1);
+        }
+
+        .footer h1 {
+            position: relative;
+            top: -70px;
+            font-size: 100px;
+        }
+
+        .footer h1 span {
+            color: rgb(151, 62, 62);
+        }
+
+        @media screen and (max-width: 1024px) {
+            .footer {
+                position: relative;
+                top: 0px;
+            }
+
+            .img-wrap img {
+                width: 100%;
+                filter: sepia(1)
+            }
+
+
+        }
+
+        .grid .box img:hover {
+            transform: scale(1.1);
+            filter: sepia(1)
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark ">
+        <a class="navbar-brand" href="index.html"><img src="./imgs/logogood.png" width="150" height="150"
+                class="d-inline-block align-top" alt=""></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav nav-tabs m-auto ">
+                <li class="nav-item">
+                    <a class="nav-link " href="index.html">關於</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="action.html">執行</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="Adopt.html">認養</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="donate.html">捐款</a>
+                </li>
+
+            </ul>
+
+
+        </div>
+    </nav>
+    <div class="block">
+        <div class="container grid">
+            <div class="box box1"><img src="./imgs/7~1.jpg" alt=""></div>
+            <div class="box box2"><img src="./imgs/43.jpg" alt=""></div>
+            <div class="box box3"><img src="./imgs/7~1.jpg" alt=""></div>
+            <div class="box box4"><img src="./imgs/7~1.jpg" alt=""></div>
+            <div class="box box5"><img src="./imgs/7~1.jpg" alt=""></div>
+            <div class="box box6"> <img src="./imgs/26.jpg" alt=""></div>
+            <div class="box box7"> <img src="./imgs/13.jpg" alt=""></div>
+            <div class="box box8"> <img src="./imgs/26.jpg" alt=""></div>
+            <div class="box box9"> <img src="./imgs/30.jpg" alt=""></div>
+            <div class="box box10"> <img src="./imgs/6.jpg" alt=""></div>
+            <div class="box box11"><img src="./imgs/13.jpg" alt=""></div>
+            <div class="box box12"><img src="./imgs/64.jpg" alt=""></div>
+            <div class="box box13"><img src="./imgs/11.jpg" alt=""></div>
+            <div class="box box14"><img src="./imgs/35.jpg" alt=""></div>
+            <div class="box box15"><img src="./imgs/13.jpg" alt=""></div>
+            <div class="box box16"><img src="./imgs/61.jpg" alt=""></div>
+            <div class="box box17"><img src="./imgs/38.jpg" alt=""></div>
+            <div class="box box18"><img src="./imgs/6.jpg" alt=""></div>
+            <div class="box box19"><img src="./imgs/7~1.jpg" alt=""></div>
+            <div class="box box20"><img src="./imgs/7~1.jpg" alt=""></div>
+            <div class="box box21"><img src="./imgs/40.jpg" alt=""></div>
+            <div class="box box22"><img src="./imgs/42.jpg" alt=""></div>
+            <div class="box box23"><img src="./imgs/39.jpg" alt=""></div>
+            <div class="box box24"><img src="./imgs/6.jpg" alt=""></div>
+            <div class="box box25"><img src="./imgs/6.jpg" alt=""></div>
+        </div>
+    </div>
+    <div class="contain">
+        <div class="maintitle">
+            <div class="toptitle">
+                <h5>台灣動保團體.紮浪計畫（TN<span>v</span>R）.二十年歷史</h5>
+            </div>
+            <h1 class="subtitle">
+                <div class="Trap">T rap </div>
+                <div class="ap">
+                    <ul class="list-unstyled d-flex img-ap ">
+                        <li><img src="./imgs/30.jpg"></li>
+                        <li><img src="./imgs/16.jpg"></li>
+                        <li><img src="./imgs/b6.jpg"></li>
+                        <li><img src="./imgs/11.jpg"></li>
+                        <li><img src="./imgs/30.jpg"></li>
+                    </ul>
+                </div>
+                <div class="Neuter">　N euter 　　　　<span>V</span> accinate </div>
+                <div class="Return">R eturn</div>
+
+            </h1>
+        </div>
+    </div>
+    <div class="intro">
+        <div class="bgc-grey">
+            <h3 class="main-word">
+
+                <br>
+                TN<span>v</span>R結紮團隊<br>
+                【愛心鑰匙在你我手上】<br>
+                【盼．有朝一日能夠終止流浪動物悲歌】<br>
+                T(trap)捕捉、N(neuter)絕育、<span> V</span>(vaccinate)疫苗注射、R(return)原棲息地回置
+                <br>
+                <br>
+            </h3>
+            <div class=video-container>
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/1_Jk3lVvhEk?autoplay=1&mute=1"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture;"
+                    allowfullscreen></iframe>
+            </div>
+            <h3 class="sub-inform">
+                自1980年起<br>
+                動物保護團體開始在美國推廣TN<span>v</span>R的做法<br>
+                近年來<br>
+                TN<span>v</span>R已於歐美及亞洲等地區廣泛使用<br>
+                台灣TN<span>v</span>R結紮團隊由<br>
+
+                中華民國菩提護生協會<br>
+                台南市徐春水流浪動物之家<br>
+                台南市流浪動物愛護協會<br>
+                台中橋烽關懷生命協會<br>
+                相信動物協會協會<br>
+                眾協會與愛貓愛狗爸的子弟兵們<br>
+                及各地動保志工結合而成的一支堅強的隊伍<br>
+                因為愛與信念<br>
+                因為共同目標<br>
+                凝聚成一股強大力量<br>
+                TN<span>v</span>R-結紮團隊<br>
+                足跡遍布各地<br>
+                每一場次中<br>
+                都有許多志工參與<br>
+                分屬不同團體或獨立作業的動保志工們<br>
+                從台灣各地集結而來<br>
+                為了共同目標與願景<br>
+                【愛心鑰匙在你我手上】<br>
+                【盼．有朝一日能夠終止流浪動物悲歌】
+            </h3>
+            <div class="end-both">
+                <div class="end-left">謝謝你對我的付出</div>
+                <div class="end-right">浪貓浪狗敬上</div>
+            </div>
+            <div class="footer">
+                <span>【愛心鑰匙在你我手上】</span>
+                <div class="wrap">
+                    <ul class="list-unstyled d-flex img-wrap">
+                        <li><img src="./imgs/12.jpg"></li>
+                        <li><img src="./imgs/16.jpg"></li>
+                        <li><img src="./imgs/40.jpg"></li>
+                        <li><img src="./imgs/67.jpg"></li>
+                        <li><img src="./imgs/12.jpg"></li>
+                    </ul>
+
+                </div>
+                <h1>TN<span>v</span>R</h1>
+                <h6>Copyright © 2021 Credits</h6>
+
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
+        integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
+        integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+        crossorigin="anonymous"></script>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.js"
+        integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+    <script>
+        let page = 0;
+        setInterval(() => {
+            page = page + 1;
+            if (page >= 5) {
+                page = 0;
+            }
+            $('.img-ap').css('left', -100 * page + 'px');
+            console.log('page=', page);
+
+            //   js es6 的 function的寫法,俗稱箭頭函式
+        }, 2000);
+        setInterval(() => {
+            page = page + 1;
+            if (page >= 5) {
+                page = 0;
+            }
+            $('.img-app').css('left', -100 * page + 'px');
+            console.log('page=', page);
+
+            //   js es6 的 function的寫法,俗稱箭頭函式
+        }, 3000);
+
+
+
+
+
+
+        setInterval(() => {
+            page = page + 1;
+            if (page >= 5) {
+                page = 0;
+            }
+            $('.img-wrap').css('left', -100 * page + 'px');
+            console.log('page=', page);
+
+            //   js es6 的 function的寫法,俗稱箭頭函式
+        }, 2000);
+
+
+
+
+
+
+        // $(window).scroll(function () {
+
+        //     console.log('scrollTop', $(this).scrollTop());
+        //     let windowScrollTop = $(this).scrollTop();
+        //     if (windowScrollTop > 10) {
+
+        //         $('.box4').css('transform', 'translateY(200px) translateX(-20px)  ')
+        //         $('.box9').css('transform', 'translateY(200px) translateX(-20px)  ')
+        //         // $('.box14').css('transform', 'translateY(200px) translateX(-20px) ')
+        //         // $('.box19').css('transform', 'translateY(200px) translateX(-20px)')
+        //         // $('.box24').css('transform', 'translateY(200px) translateX(-20-px)  ')
+        //         // $('.box29').css('transform', 'translateY(200px) translateX(-20px) ')
+        //     }
+        // }
+        //     else {
+
+        //     }
+
+        // })
+
+
+
+    </script>
+
+
+
+
+    </script>
+</body>
+
+
+
+
+</html>

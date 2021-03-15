@@ -1,0 +1,807 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+        integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-size: 16px;
+            line-height: 1.5em;
+            font-family: 微軟正黑體, Microsoft JhengHei, MingLiU, arial, verdana, helvetica, tahoma, Sans-serif;
+            background-color: black;
+
+            box-sizing: border-box;
+            color: white;
+
+        }
+
+        .bg-dark {
+            background-color: rgb(0, 0, 0) !important;
+            ;
+        }
+
+        .navbar {
+            text-align: center;
+            display: block;
+
+        }
+
+        .collapse ul li {
+            padding-left: 50px;
+            padding-right: 50px;
+        }
+
+        @media screen and (max-width: 1024px) {
+            body {
+                position: relative;
+            }
+
+            .navbar-toggler {
+                position: absolute;
+                left: 80%;
+                top: 80px;
+                transition: 3s;
+            }
+        }
+
+        /* ------------討人厭的banner---------------------- */
+
+        .container-fluid {
+            position: relative;
+            top: 220px;
+
+        }
+
+        .bbgc {
+            width: 100%;
+            height: 800px;
+            text-align: center;
+            filter: grayscale(1);
+        }
+
+        .bbgc img {
+            width: 100%;
+        }
+
+        .word {
+            position: relative;
+            top: -60%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            background: rgba(70, 70, 70, 0.383);
+            display: block;
+            text-align: center;
+            width: 20%;
+            color: white;
+
+            border-radius: 20px;
+            font-size: 30px;
+            line-height: 35px;
+        }
+
+        .bbgc:hover {
+            filter: sepia(0.4);
+        }
+
+
+
+
+        @media screen and (max-width: 1024px) {
+
+            .container-fluid {
+                position: relative;
+                top: 200px;
+
+            }
+
+            .bbgc {
+                width: 100%;
+                height: 270px;
+            }
+
+            .bbgc img {
+                width: 100%;
+            }
+
+            .word {
+                position: relative;
+                top: -65px;
+                font-size: 16px;
+                line-height: 20px;
+                width: 40%;
+                color: white;
+                line-height: 26px;
+            }
+
+            .word p {
+                display: none;
+            }
+        }
+
+        /* -------------------騙照---------------------- */
+
+        .section-inner {
+            text-align: center;
+            margin: 1%;
+            position: relative;
+            top: 250px;
+
+        }
+
+        .section-inner .limit {
+            height: auto;
+        }
+
+        .limit img {
+            width: 90%;
+            height: auto;
+            margin: 5%;
+            border: 10px solid rgb(131, 131, 131);
+            filter: grayscale(1);
+            margin: 5%;
+            text-align: center;
+            padding-left: 0;
+        }
+
+        @media screen and (max-width: 1024px) {
+
+            .section-inner {
+                margin: 0.5%;
+                top: 0px;
+                overflow: hidden;
+
+
+            }
+
+            .limit img {
+                width: 90%;
+                height: auto;
+                margin: 5%;
+                border: 5px solid rgb(131, 131, 131);
+
+
+
+            }
+
+            .qq {
+                display: none;
+            }
+        }
+
+        /* .limitinform {
+            position: absolute;
+            bottom: 0px;
+            background-color: rgb(151, 62, 62);
+            height: auto;
+            border-radius: 10px;
+            opacity: 0.7;
+        }
+
+        .limitinform ul {
+            list-style: none;
+            padding-left: 5px;
+            padding-right: 5px;
+            margin: 5px;
+        }
+
+        .limitinform ul li {
+            font-size: 16px;
+            line-height: 20px;
+            color: aliceblue;
+        }
+
+        .limitinform ul li a {
+            color: aliceblue;
+            font-weight: 900;
+
+        }
+
+        .limit img:hover {
+            filter: grayscale(0);
+            filter: drop-shadow(5px 5px 5px #333)
+        } */
+        /* -------------------------------------- */
+
+
+
+
+
+        .limitinforn {
+            position: absolute;
+            bottom: 0px;
+            background-color: rgb(151, 62, 62);
+
+            border-radius: 10px;
+            opacity: 0.7;
+            height: 0;
+            overflow: hidden;
+        }
+
+
+        .limitinforn ul {
+            list-style: none;
+            padding-left: 5px;
+            padding-right: 5px;
+            margin: 5px;
+
+
+        }
+
+        .limitinform ul li {
+            font-size: 16px;
+            line-height: 20px;
+            color: aliceblue;
+
+        }
+
+        .limitinforn ul li a {
+            color: aliceblue;
+            font-weight: 900;
+
+        }
+
+        .limit img:hover {
+            filter: grayscale(0);
+            filter: drop-shadow(5px 5px 5px #333);
+            transform: scale(1.2) rotate(-5deg);
+            transition-timing-function: ease-in;
+            transition: all 0.5s ease;
+            border: 10px solid rgb(255, 255, 255);
+        }
+
+        .limit:hover .limitinforn {
+            height: auto;
+            transition: all 0.5s ease;
+
+        }
+
+        /* ------------footer開始----------- */
+
+        .footer {
+            padding-top: 20px;
+            text-align: center;
+            background-color: rgb(32, 32, 32);
+            color: white;
+            position: relative;
+            top: 20px;
+
+        }
+
+        .wrap {
+            max-width: 100px;
+            height: 120px;
+            overflow: hidden;
+            position: relative;
+            margin: 0 auto;
+            background-color: black;
+        }
+
+        .img-wrap {
+            width: 500px;
+            height: 120px;
+            position: absolute;
+            left: 0px;
+            transition: 0.5s;
+
+        }
+
+        .img-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: sepia(1);
+        }
+
+        .footer h1 {
+            position: relative;
+            top: -70px;
+            font-size: 100px;
+        }
+
+        .footer h1 span {
+            color: rgb(151, 62, 62);
+        }
+
+        @media screen and (max-width: 1024px) {
+
+
+            .img-wrap img {
+                width: 100%;
+                filter: sepia(1)
+            }
+        }
+
+        .col-lg-3 {
+            padding: 0;
+
+        }
+
+        .section-inner {
+            margin-top: 0;
+            margin-bottom: 0;
+        }
+    </style>
+
+
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark ">
+        <a class="navbar-brand" href="index.html"><img src="./imgs/logogood.png" width="150" height="150"
+                class="d-inline-block align-top" alt=""></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav nav-tabs m-auto ">
+                <li class="nav-item">
+                    <a class="nav-link " href="index.html">關於</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="action.html">執行</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="Adopt.html">認養</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="donate.html">支持</a>
+                </li>
+
+            </ul>
+
+
+        </div>
+    </nav>
+
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="bbgc">
+                <img src="./imgs/adopt.jpg" alt=" ">
+                <h3 class="word">
+
+                    ▒▒<br><br>
+                    請支持領養代替購買<br>
+                    <p>
+                        只需要一個家<br>
+                        一份愛<br>
+                    </p><br>
+                    ▒▒
+                </h3>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div class="container-fluid adopt">
+        <div class="row section-inner">
+            <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12 ">
+                <div class="limit">
+                    <img src="./imgs/adopt1.jpg" alt="">
+                    <div class="limitinforn">
+                        <ul>
+                            <li>毛色：虎斑色</li>
+                            <li>體型：小型</li>
+                            <li>開放認養日期：2021-03-06</li>
+                            <li> <a href="https://animal.coa.gov.tw/Frontend/PublicShelter/Detail/PS00000003">
+                                    板橋動物之家☞</a> </li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12 ">
+                <div class="limit">
+                    <img src="./imgs/adopt2.jpg" alt="">
+                    <div class="limitinforn">
+                        <ul>
+                            <li>毛色：黑黃色</li>
+                            <li>體型：中型</li>
+                            <li>開放認養日期：2021-03-05</li>
+                            <li> <a href="https://animal.coa.gov.tw/Frontend/PublicShelter/Detail/PS00000003">
+                                    板橋動物之家☞</a> </li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12 ">
+                <div class="limit">
+                    <img src="./imgs/adopt3.jpg" alt="">
+                    <div class="limitinforn">
+                        <ul>
+                            <li>毛色：虎斑色</li>
+                            <li>體型：中型</li>
+                            <li>開放認養日期：2021-03-06</li>
+                            <li> <a href="https://animal.coa.gov.tw/Frontend/PublicShelter/Detail/PS00000005">
+                                    中和動物之家☞</a> </li>
+                        </ul>
+                    </div>
+
+
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12 ">
+                <div class="limit">
+                    <img src="./imgs/adopt4.jpg" alt="">
+                    <div class="limitinforn">
+                        <ul>
+                            <li>毛色：白底虎斑</li>
+                            <li>體型：小型</li>
+                            <li>開放認養日期：2021-03-04</li>
+                            <li> <a href="https://animal.coa.gov.tw/Frontend/PublicShelter/Detail/PS00000003">
+                                    板橋動物之家☞</a> </li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+
+
+        </div>
+        <div class="row section-inner">
+            <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12 ">
+                <div class="limit">
+                    <img src="./imgs/adopt5.jpg" alt="">
+                    <div class="limitinforn">
+                        <ul>
+                            <li>毛色：黃白色</li>
+                            <li>體型：小型</li>
+                            <li>開放認養日期：2021-03-04</li>
+                            <li> <a href="https://animal.coa.gov.tw/Frontend/PublicShelter/Detail/PS00000003">
+                                    板橋動物之家☞</a> </li>
+                        </ul>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12 ">
+                <div class="limit">
+                    <img src="./imgs/adopt6.jpg" alt="">
+                    <div class="limitinforn">
+                        <ul>
+                            <li>毛色：黑色</li>
+                            <li>體型：小型</li>
+                            <li>開放認養日期：2021-03-04</li>
+                            <li> <a href="https://animal.coa.gov.tw/Frontend/PublicShelter/Detail/PS00000004">
+                                    新店動物之家☞</a> </li>
+                        </ul>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12 ">
+                <div class="limit">
+                    <img src="./imgs/adopt7.jpg" alt="">
+                    <div class="limitinforn">
+                        <ul>
+                            <li>毛色：白色</li>
+                            <li>體型：中型</li>
+                            <li>開放認養日期：2021-03-06</li>
+                            <li> <a href="https://animal.coa.gov.tw/Frontend/PublicShelter/Detail/PS00000004">
+                                    新店動物之家☞</a> </li>
+                        </ul>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12 ">
+                <div class="limit">
+                    <img src="./imgs/adopt8.jpg" alt="">
+                    <div class="limitinforn">
+                        <ul>
+                            <li>毛色：虎斑色</li>
+                            <li>體型：中型</li>
+                            <li>開放認養日期：2021-03-05</li>
+                            <li> <a href="https://animal.coa.gov.tw/Frontend/PublicShelter/Detail/PS00000005">
+                                    中和動物之家☞</a> </li>
+                        </ul>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="row section-inner">
+            <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12 ">
+                <div class="limit">
+                    <img src="./imgs/adopt9.jpg" alt="">
+                    <div class="limitinforn">
+                        <ul>
+                            <li>毛色：黑黃色</li>
+                            <li>體型：中型</li>
+                            <li>開放認養日期：2021-03-04</li>
+                            <li> <a href="https://animal.coa.gov.tw/Frontend/PublicShelter/Detail/PS00000005">
+                                    中和動物之家☞</a> </li>
+                        </ul>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12 ">
+                <div class="limit">
+                    <img src="./imgs/adopt10.jpg" alt="">
+                    <div class="limitinforn">
+                        <ul>
+                            <li>毛色：棕色</li>
+                            <li>體型：中型</li>
+                            <li>開放認養日期：2021-03-03</li>
+                            <li> <a href="https://animal.coa.gov.tw/Frontend/PublicShelter/Detail/PS00000007">
+                                    瑞芳動物之家☞</a> </li>
+                        </ul>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12 ">
+                <div class="limit">
+                    <img src="./imgs/adopt11.jpg" alt="">
+                    <div class="limitinforn">
+                        <ul>
+                            <li>毛色：白底虎斑</li>
+                            <li>體型：中型</li>
+                            <li>開放認養日期：2021-03-03</li>
+                            <li> <a href="https://animal.coa.gov.tw/Frontend/PublicShelter/Detail/PS00000005">
+                                    中和動物之家☞</a> </li>
+                        </ul>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12 ">
+                <div class="limit">
+                    <img src="./imgs/adopt12.jpg" alt="">
+                    <div class="limitinforn">
+                        <ul>
+                            <li>毛色：白底虎斑</li>
+                            <li>體型：中型</li>
+                            <li>開放認養日期：2021-03-03</li>
+                            <li> <a href="https://animal.coa.gov.tw/Frontend/PublicShelter/Detail/PS00000005">
+                                    中和動物之家☞</a> </li>
+                        </ul>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="row section-inner">
+            <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12 ">
+                <div class="limit">
+                    <img src="./imgs/adopt13.jpg" alt="">
+                    <div class="limitinforn">
+                        <ul>
+                            <li>毛色：黑色</li>
+                            <li>體型：小型</li>
+                            <li>開放認養日期：2021-03-03</li>
+                            <li> <a href="https://animal.coa.gov.tw/Frontend/PublicShelter/Detail/PS00000005">
+                                    中和動物之家☞</a> </li>
+                        </ul>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12 ">
+                <div class="limit">
+                    <img src="./imgs/adopt14.jpg" alt="">
+                    <div class="limitinforn">
+                        <ul>
+                            <li>毛色：黑色</li>
+                            <li>體型：中型</li>
+                            <li>開放認養日期：2021-03-03</li>
+                            <li> <a href="https://animal.coa.gov.tw/Frontend/PublicShelter/Detail/PS00000005">
+                                    中和動物之家☞</a> </li>
+                        </ul>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12 ">
+                <div class="limit">
+                    <img src="./imgs/adopt15.jpg" alt="">
+                    <div class="limitinforn">
+                        <ul>
+                            <li>毛色：虎斑色</li>
+                            <li>體型：小型</li>
+                            <li>開放認養日期：2021-03-03</li>
+                            <li> <a href="https://animal.coa.gov.tw/Frontend/PublicShelter/Detail/PS00000005">
+                                    中和動物之家☞</a> </li>
+                        </ul>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12 ">
+                <div class="limit">
+                    <img src="./imgs/adopt16.jpg" alt="">
+                    <div class="limitinforn">
+                        <ul>
+                            <li>毛色：虎斑色</li>
+                            <li>體型：中型</li>
+                            <li>開放認養日期：2021-03-06</li>
+                            <li> <a href="https://animal.coa.gov.tw/Frontend/PublicShelter/Detail/PS00000005">
+                                    中和動物之家☞</a> </li>
+                        </ul>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="row section-inner">
+            <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12 ">
+                <div class="limit">
+
+                    <img src="./imgs/adopt17.jpg" alt="">
+                    <div class="limitinforn">
+                        <ul>
+                            <li>毛色：虎斑色</li>
+                            <li>體型：中型</li>
+                            <li>開放認養日期：2021-02-28</li>
+                            <li> <a href="https://animal.coa.gov.tw/Frontend/PublicShelter/Detail/PS00000005">
+                                    中和動物之家☞</a> </li>
+                        </ul>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12 ">
+                <div class="limit">
+                    <img src="./imgs/adopt18.jpg" alt="">
+                    <div class="limitinforn">
+                        <ul>
+                            <li>毛色：白底虎斑</li>
+                            <li>體型：中型</li>
+                            <li>開放認養日期：2021-02-27</li>
+                            <li> <a href="https://animal.coa.gov.tw/Frontend/PublicShelter/Detail/PS00000005">
+                                    中和動物之家☞</a> </li>
+                        </ul>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12 ">
+                <div class="limit">
+                    <img src="./imgs/adopt19.jpg" alt="">
+                    <div class="limitinforn">
+                        <ul>
+                            <li>毛色：黑色</li>
+                            <li>體型：中型</li>
+                            <li>開放認養日期：2021-02-027</li>
+                            <li> <a href="https://animal.coa.gov.tw/Frontend/PublicShelter/Detail/PS00000005">
+                                    中和動物之家☞</a> </li>
+                        </ul>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12 ">
+                <div class="limit">
+                    <img src="./imgs/adopt26.jpg" alt="">
+                    <div class="limitinforn">
+                        <ul>
+                            <li>毛色：黑色</li>
+                            <li>體型：中型</li>
+                            <li>開放認養日期：2021-02-04</li>
+                            <li> <a href="https://animal.coa.gov.tw/Frontend/PublicShelter/Detail/PS00000004">
+                                    新店動物之家☞</a> </li>
+                        </ul>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+        <div class="qq">
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+        </div>
+        <div class="footer">
+            <span>【愛心鑰匙在你我手上】</span>
+            <div class="wrap">
+                <ul class="list-unstyled d-flex img-wrap">
+                    <li><img src="./imgs/12.jpg"></li>
+                    <li><img src="./imgs/16.jpg"></li>
+                    <li><img src="./imgs/40.jpg"></li>
+                    <li><img src="./imgs/67.jpg"></li>
+                    <li><img src="./imgs/12.jpg"></li>
+                </ul>
+
+            </div>
+            <h1>TN<span>v</span>R</h1>
+            <h6>Copyright © 2021 Credits</h6>
+
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
+        integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
+        integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+        crossorigin="anonymous"></script>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.js"
+        integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+    <script>
+        // $('limit').mouseenter(function () {
+        //     $(this).addClass('limitinforn-open');
+
+        // })
+
+
+        let page = 0;
+
+        setInterval(() => {
+            page = page + 1;
+            if (page >= 5) {
+                page = 0;
+            }
+            $('.img-wrap').css('left', -100 * page + 'px');
+            console.log('page=', page);
+
+            //   js es6 的 function的寫法,俗稱箭頭函式
+        }, 2000);
+
+
+
+
+
+
+
+    </script>
+</body>
+
+
+
+
+</html>

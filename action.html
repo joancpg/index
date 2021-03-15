@@ -1,0 +1,806 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+        integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-size: 16px;
+            line-height: 1.5em;
+            font-family: 微軟正黑體, Microsoft JhengHei, MingLiU, arial, verdana, helvetica, tahoma, Sans-serif;
+            /* background-color: black; */
+            background: black;
+            box-sizing: border-box;
+            color: white;
+            align-items: center;
+            height: 3000px;
+        }
+
+        .bg-dark {
+            background-color: rgb(0, 0, 0) !important;
+        }
+
+        .navbar {
+            text-align: center;
+            display: block;
+        }
+
+        .collapse ul li {
+            padding-left: 50px;
+            padding-right: 50px;
+        }
+
+        @media screen and (max-width: 1024px) {
+            body {
+                position: relative;
+            }
+
+            .navbar-toggler {
+                position: absolute;
+                left: 80%;
+                top: 80px;
+                transition: 3s;
+            }
+        }
+
+        /* ------開頭結束囉~ qq ---------- */
+
+        .container-fluid {
+            position: relative;
+            top: 220px;
+
+        }
+
+        .bbgc {
+            width: 100%;
+            height: 800px;
+            text-align: center;
+        }
+
+        .bbgc img {
+            height: 100%;
+        }
+
+        .word {
+            position: relative;
+            top: -310px;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            font-size: 30px;
+            line-height: 35px;
+        }
+
+
+        @media screen and (max-width: 1024px) {
+
+            .container-fluid {
+                position: relative;
+                top: 200px;
+            }
+
+            .bbgc {
+                width: 100%;
+                height: 270px;
+            }
+
+            .bbgc img {
+                width: 100%;
+
+            }
+
+            .word {
+                position: relative;
+                top: -140px;
+                font-size: 20px;
+
+            }
+        }
+
+        /* ----------影片開始------------------ */
+        .video-container {
+
+            position: relative;
+            padding-bottom: 50%;
+            padding-top: 30px;
+            height: 0;
+            overflow: hidden;
+            filter: grayscale(0);
+            text-align: center;
+            top: 500px
+        }
+
+        .video-container iframe,
+        .video-container object,
+        .video-container embed {
+            position: absolute;
+            top: 0;
+            left: 25%;
+            width: 50%;
+            height: 50%;
+        }
+
+        @media screen and (max-width: 1024px) {
+            .video-container {
+                top: 450px
+            }
+
+            .video-container iframe,
+            .video-container object,
+            .video-container embed {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+            .video-container {
+                top: 350px
+            }
+
+            .video-container iframe,
+            .video-container object,
+            .video-container embed {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+            }
+        }
+
+
+
+        .intro {
+            text-align: center;
+            position: relative;
+            top: 300px;
+            height: 2350px;
+            background-color: rgb(44, 41, 41);
+
+            padding: 30px 20px;
+            border-radius: 20px;
+        }
+
+        @media screen and (max-width: 1024px) {
+            .intro {
+                top: 250px;
+                margin: 0 auto;
+                height: 2500px;
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+            .intro {
+                top: 250px;
+                margin: 0 auto;
+                height: 5000px;
+            }
+        }
+
+        /* --------------實際照片------------ */
+        .container.action {
+            position: relative;
+            top: -1180px;
+            /* background-color: rgba(158, 158, 158, 0.377); */
+
+        }
+
+        .section-in {
+            width: 100%;
+            height: 470px;
+            position: relative;
+            padding-right: 0;
+            margin: 0 auto;
+        }
+
+        .col-lg-4 {
+            text-align: center;
+            transition: transform 2s;
+            transform-style: preserve-3d;
+            margin-top: 10px;
+            height: 470px;
+            padding-left: 0;
+
+        }
+
+        .col-lg-4:hover {
+            cursor: pointer;
+            transform: rotateY(180deg);
+        }
+
+        .card-imgouter {
+            position: absolute;
+            backface-visibility: hidden;
+            width: 100%;
+            height: 470px;
+            object-fit: contain;
+            overflow: hidden;
+
+
+
+        }
+
+        .card-img {
+            border-radius: 20px;
+            width: 90%;
+            height: 100%;
+            object-fit: contain;
+            border: 5px rgba(82, 82, 82, 0.938);
+            filter: grayscale(1);
+        }
+
+        .card-content {
+            position: absolute;
+            left: 5%;
+            top: 5%;
+            background-color: rgba(102, 102, 102, 0.568);
+            /* border-radius: 20px; */
+            width: 90%;
+            height: 425px;
+            line-height: 30px;
+            backface-visibility: hidden;
+            transform: rotateY(180deg);
+            /* padding-left: 0; */
+        }
+
+        .card-content img {
+            border-radius: 20px;
+
+
+        }
+
+        @media screen and (max-width: 1024px) {
+            .section-in {
+                height: auto;
+            }
+
+            .container.action {
+                position: relative;
+                top: -1250px;
+                /* background-color: rgba(158, 158, 158, 0.377); */
+            }
+
+            .card-content {
+                height: 440px;
+                top: 3%;
+
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+            .section-in {
+                height: auto;
+            }
+
+            .container.action {
+                position: relative;
+                top: -4150px;
+                /* background-color: rgba(158, 158, 158, 0.377); */
+            }
+
+            .card-content {
+                height: 440px;
+                top: 3%;
+
+            }
+
+
+
+
+
+        }
+
+        /* ---------------各家連結--------------------- */
+
+        .name {
+            position: relative;
+            top: -3450px;
+            /* background-color: rgba(158, 158, 158, 0.377); */
+
+        }
+
+        .img-demo {
+            height: 330px;
+            border-radius: 20px;
+            /* background: linear-gradient(rgb(151, 62, 62), rgb(71, 49, 7)); */
+            /* background-image: url(./imgs/987.jpg); */
+            /* background-image: url(./imgs/行動/27.jpg), url(./imgs/行動/08.jpg), url(./imgs/行動/28.jpg);
+            background-position: left center, center center, right center;
+            background-repeat: no-repeat; */
+            background-size: cover;
+            background-position: -150px 100%;
+
+            box-sizing: content-box;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .img-demo img {
+            width: 30%;
+            height: 100%;
+            object-fit: contain;
+            /* border-radius: 50%; */
+            /* filter: grayscale(1); */
+            /* border: 20px solid transparent; */
+        }
+
+
+        .img-wra img {
+            width: 50%;
+            border-radius: 50%;
+            object-fit: cover;
+            filter: grayscale(1);
+
+        }
+
+        .img-row {
+            text-align: center;
+            margin: 10px;
+            background-color: rgba(102, 102, 102, 0.514);
+            border-radius: 20px;
+
+
+        }
+
+
+        .img-wra img:hover {
+            filter: grayscale(0);
+            transform: scale(1.5) rotate(-5deg);
+            transition-timing-function: ease-in;
+            transition: all 0.5s ease;
+
+        }
+
+        @media screen and (max-width: 1024px) {
+            .name {
+                top: -3700px;
+                /* background-color: rgba(158, 158, 158, 0.377); */
+            }
+
+            .img-demo img {
+                width: 60%;
+                /* height: 100%; */
+                object-fit: contain;
+
+            }
+
+            .img-wra {
+                margin-top: 0px;
+            }
+
+            .img-wra img {
+                width: 50%;
+                object-fit: cover;
+                filter: grayscale(1);
+            }
+
+            .img-wra p {
+                display: none;
+            }
+
+            .img-row {
+                margin: 5px;
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+            .name {
+                top: -9100px;
+                /* background-color: rgba(158, 158, 158, 0.377); */
+            }
+
+            .img-demo img {
+                width: 60%;
+                /* height: 100%; */
+                object-fit: contain;
+
+            }
+
+            .img-wra {
+                margin-top: 0px;
+            }
+
+            .img-wra img {
+                width: 50%;
+                object-fit: cover;
+                filter: grayscale(1);
+            }
+
+            .img-wra p {
+                display: none;
+            }
+
+            .img-row {
+                margin: 5px;
+            }
+        }
+
+        /* ------------照片區結束了--------- */
+
+        .footer {
+            padding-top: 20px;
+            text-align: center;
+            background-color: rgb(32, 32, 32);
+            color: white;
+            position: relative;
+            top: -1490px;
+
+        }
+
+        .wrap {
+            max-width: 100px;
+            height: 120px;
+            overflow: hidden;
+            position: relative;
+            margin: 0 auto;
+            background-color: black;
+        }
+
+        .img-wrap {
+            width: 500px;
+            height: 120px;
+            position: absolute;
+            left: 0px;
+            transition: 0.5s;
+
+        }
+
+        .img-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: sepia(1);
+        }
+
+        .footer h1 {
+            position: relative;
+            top: -70px;
+            font-size: 100px;
+        }
+
+        .footer h1 span {
+            color: rgb(151, 62, 62);
+        }
+
+        @media screen and (max-width: 1024px) {
+            .footer {
+                position: relative;
+                top: 900px;
+            }
+
+            .img-wrap img {
+                width: 100%;
+                filter: sepia(1)
+            }
+
+
+        }
+
+        @media screen and (max-width: 768px) {
+            .footer {
+                position: relative;
+                top: -4390px;
+            }
+        }
+    </style>
+
+
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark ">
+        <a class="navbar-brand" href="index.html"><img src="./imgs/logogood.png" width="150" height="150"
+                class="d-inline-block align-top" alt=""></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav nav-tabs m-auto ">
+                <li class="nav-item">
+                    <a class="nav-link " href="index.html">關於</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="action.html">執行</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="Adopt.html">認養</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="donate.html">支持</a>
+                </li>
+
+            </ul>
+
+
+        </div>
+    </nav>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="bbgc">
+                <img src="./imgs/banner.jpg" alt=" ">
+                <h3 class="word">
+                    ▒▒<br><br>
+                    無悔的付出
+                    <p><span></span> 行動證明一切 </p>
+                    ▒▒
+                </h3>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+
+        <div class="intro">
+            <div class=video-container>
+                <iframe width="300" height="315" src="https://www.youtube.com/embed/HAJghvY7GmU?autoplay=1&mute=1"
+                    frameborder="0"
+                    allow="accelerometer; autoplay=1; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container action">
+        <div class="row section-in">
+            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 ">
+                <div class="card-imgouter">
+                    <img class="card-img" src="./imgs/行動/21.jpg" />
+                </div>
+                <div class="card-content">
+                    <br>
+                    2021/1/31 10:56 <br><br>
+                    屏東佳冬塭豐海堤 <br>
+                    群聚狗羣已造成社區<br>
+                    人車，家犬受傷問題<br>
+                    公母犬誘捕結紮<br><br>
+                    <img src="./imgs/行動/21.jpg" alt="" srcset="" width="140px">
+
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 ">
+                <div class="card-imgouter">
+                    <img class="card-img" src="./imgs/行動/22.jpg" />
+                </div>
+                <div class="card-content">
+                    <br>
+                    2021/1/31 04:00 <br><br>
+                    屏東鹽埔 <br>
+                    清空餵食區母犬誘捕<br>
+                    狗群聚攏利於誘捕<br>
+                    天還未破曉即驅車南下<br><br>
+                    <img src="./imgs/行動/22.jpg" alt="" srcset="" width="140px">
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 ">
+                <div class="card-imgouter">
+                    <img class="card-img" src="./imgs/行動/23.jpg" />
+                </div>
+                <div class="card-content">
+                    <br>
+                    2021/2/01 11:00 <br><br>
+                    臨危受命接受通報 <br>
+                    協助救援高雄燕巢區<br>
+                    中捕獸夾狗<br>
+                    據說已有一星期之久<br><br>
+                    <img src="./imgs/行動/23.jpg" alt="" srcset="" width="140px">
+                </div>
+            </div>
+        </div>
+        <div class="row section-in">
+            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 ">
+                <div class="card-imgouter">
+                    <img class="card-img" src="./imgs/行動/42.jpg">
+                </div>
+                <div class="card-content">
+                    <br>
+                    2021/1/31 10:56 <br><br>
+                    杉林區真福山 <br>
+
+                    旗山區<br>
+                    實行結紮日<br><br>
+                    <img src="./imgs/行動/42.jpg" alt="" srcset="" width="140px">
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 ">
+                <div class="card-imgouter">
+                    <img class="card-img" src="./imgs/行動/39.jpg" />
+                </div>
+                <div class="card-content">
+                    <br>
+                    流浪犬貓 <br><br>
+                    社會共業 <br>
+                    能力所及<br>
+
+                    責無旁貸<br><br>
+                    <img src="./imgs/行動/39.jpg" alt="" srcset="" width="140px">
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 ">
+                <div class="card-imgouter">
+                    <img class="card-img" src="./imgs/行動/40.jpg" />
+                </div>
+                <div class="card-content">
+                    <br>
+                    2020/11/19 10:00 <br><br>
+                    儘管心結糾纏爆發 <br>
+                    那份承諾從沒忘卻<br>
+
+                    醫生結紮日<br><br>
+                    <img src="./imgs/行動/40.jpg" alt="" srcset="" width="140px">
+                </div>
+            </div>
+        </div>
+        <div class="row section-in">
+            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 ">
+                <div class="card-imgouter">
+                    <img class="card-img" src="./imgs/行動/34.jpg" />
+                </div>
+                <div class="card-content">
+                    <br>
+                    2020/11/20 10:00 <br><br>
+                    屏東新園 <br>
+                    火燒幼犬<br>
+
+                    僅剩餘母犬誘捕<br><br>
+                    <img src="./imgs/行動/34.jpg" alt="" srcset="" width="140px">
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 ">
+                <div class="card-imgouter">
+                    <img class="card-img" src="./imgs/行動/20.jpg" />
+                </div>
+                <div class="card-content">
+                    <br>
+                    2021/3/12 10:56 <br><br>
+                    北高雄 <br>
+                    沿海漁塭區之遊蕩犬貓<br>
+
+                    誘捕結紮一直沒有停歇<br><br>
+                    <img src="./imgs/行動/20.jpg" alt="" srcset="" width="140px">
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 ">
+                <div class="card-imgouter">
+                    <img class="card-img" src="./imgs/行動/11.jpg" />
+                </div>
+                <div class="card-content">
+                    <br>
+                    2021／03／04 14:20 <br><br>
+                    台南善化區 <br>
+                    協助誘捕結紮<br>
+                    幅員廣闊<br>
+                    農田追逐戰<br><br>
+                    <img src="./imgs/行動/11.jpg" alt="" srcset="" width="140px">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container name">
+        <div class="row">
+            <div class="col-12">
+                <div class="img-demo">
+                    <a
+                        href="https://www.facebook.com/xcs.straydogs/?__xts__[0]=68.ARALawI0OiiblmVeffpiKAm9TLIsHxnzyyQT-hXz7k1hVieQCPnlFuN0zAmPFQ9zs-prrHWD0gFVqns02XcLwJK1DbpzIrZ3G7TmfDB6ZFJl1Z4GoUpcUO58ZNNbwU2kObwkX6xDB_yJeSP7lkUnxcO6tu7tdZSXKxS4WoOoJAr8Af-5usSwa_Br4aPTSKHpbcf_GTA1C10ph-kVur3E2Yizv9iN0tNGLkaYEqc2UVlJtSa2TFVo8X6CCHnhV6lEIRVvB0rJmW5HpASHtY1JB0BNFcDrtJijSYYW0q1HrJ-PnbOx4lCDhlMAX--y6MwSIQkJ">
+
+                        <img src="./imgs/05.png" alt="">
+                    </a>
+
+                </div>
+            </div>
+            <div class="col-12">
+                <div class="img-wra d-flex">
+                    <div class="img-row">
+
+                        <img src="./imgs/05.png" alt=""
+                            href="https://www.facebook.com/xcs.straydogs/?__xts__[0]=68.ARALawI0OiiblmVeffpiKAm9TLIsHxnzyyQT-hXz7k1hVieQCPnlFuN0zAmPFQ9zs-prrHWD0gFVqns02XcLwJK1DbpzIrZ3G7TmfDB6ZFJl1Z4GoUpcUO58ZNNbwU2kObwkX6xDB_yJeSP7lkUnxcO6tu7tdZSXKxS4WoOoJAr8Af-5usSwa_Br4aPTSKHpbcf_GTA1C10ph-kVur3E2Yizv9iN0tNGLkaYEqc2UVlJtSa2TFVo8X6CCHnhV6lEIRVvB0rJmW5HpASHtY1JB0BNFcDrtJijSYYW0q1HrJ-PnbOx4lCDhlMAX--y6MwSIQkJ">
+
+                        <p>徐春水流浪狗之家</p>
+                    </div>
+                    <div class="img-row">
+
+                        <img src="./imgs/08.png" alt=""
+                            href="https://web.intersoft.com.tw/donation/OnlineTNR.Animal/ActivityDonate.aspx?ActID=4&fbclid=IwAR0O-WtcI1xXXpgZwALAAoD_rm7xcucjmjEYH8bha19aEu0rWkH-pgW094I">
+
+                        <p>台南流浪動物愛護協會</p>
+                    </div>
+                    <div class="img-row">
+
+                        <img src="./imgs/06.png" alt=""
+                            href="https://www.facebook.com/%E6%A9%8B%E7%83%BD%E9%97%9C%E6%87%B7%E7%94%9F%E5%91%BD%E5%8D%94%E6%9C%83-556420244502857/?ref=page_internal">
+
+                        <p>橋烽關懷生命協會</p>
+                    </div>
+                    <div class="img-row">
+
+                        <img src="./imgs/04.png" alt="" href="https://www.facebook.com/puticarelife/?ref=page_internal">
+
+                        <p>中華民國菩提護生協會</p>
+                    </div>
+                    <div class="img-row">
+
+                        <img src="./imgs/01.png" alt="" href="http://www.faithforanimals.org.tw/">
+
+                        <p>相信動物協會</p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <span>【愛心鑰匙在你我手上】</span>
+        <div class="wrap">
+            <ul class="list-unstyled d-flex img-wrap">
+                <li><img src="./imgs/12.jpg"></li>
+                <li><img src="./imgs/16.jpg"></li>
+                <li><img src="./imgs/40.jpg"></li>
+                <li><img src="./imgs/67.jpg"></li>
+                <li><img src="./imgs/12.jpg"></li>
+            </ul>
+
+        </div>
+        <h1>TN<span>v</span>R</h1>
+        <h6>Copyright © 2021 Credits</h6>
+
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
+        integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
+        integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+        crossorigin="anonymous"></script>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.js"
+        integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+    <script>
+        $('.img-row img').click(function () {
+            let imgSRC = $(this).attr('src')
+            let clickTab = $(this).attr('href')
+
+            $('.img-demo img').attr('src', imgSRC).css('transition', 'all 1s ease').css('transform', 'scale(1.2) ').parent('a').attr('href', clickTab)
+        })
+
+        let page = 0;
+
+        setInterval(() => {
+            page = page + 1;
+            if (page >= 5) {
+                page = 0;
+            }
+            $('.img-wrap').css('left', -100 * page + 'px');
+            console.log('page=', page);
+
+            //   js es6 的 function的寫法,俗稱箭頭函式
+        }, 2000);
+
+    </script>
+
+</body>
+
+
+
+
+
+
+</html>
